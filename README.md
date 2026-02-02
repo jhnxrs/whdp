@@ -6,9 +6,9 @@ export const README_TEXT = `
 ### 1. Install dependencies
 Start by installing all dependencies:
 
-\`\`\`bash
+```bash
 pnpm install
-\`\`\`
+```
 
 ### 2. Environment variables
 Add the proper \`FIREBASE_SERVICE_ACCOUNT_JSON\` to your \`.env\` file.
@@ -17,31 +17,31 @@ Add the proper \`FIREBASE_SERVICE_ACCOUNT_JSON\` to your \`.env\` file.
 Next, set up some mock testing data:
 
 1. Run the seed script:
-   \`\`\`bash
+   ```bash
    pnpm run:seed
-   \`\`\`
+   ```
 
 2. Open \`scripts/RunMockedIngestion.ts\` and update the \`userId\` with the ID of the user created by the seed script.
 
 3. Run the mocked ingestion:
-   \`\`\`bash
+   ```bash
    pnpm run:ingestion
-   \`\`\`
+   ```
 
 > If needed, you can reset everything by running:
 >
-> \`\`\`bash
+> ```bash
 > pnpm run:clear
-> \`\`\`
+> ```
 >
 > This will clear both the Firestore database and all authentication users.
 
 ### 4. Run the API
 Once the steps above are completed, start the API in development mode:
 
-\`\`\`bash
+```bash
 pnpm run dev
-\`\`\`
+```
 
 At this point, you should have mocked Dexcom and Apple Health data properly stored in the database.
 
@@ -52,14 +52,14 @@ You can now start hitting the API endpoints using the \`x-user-id\` header, pass
 ## Client Setup
 
 1. Install dependencies:
-   \`\`\`bash
+   ```bash
    pnpm install
-   \`\`\`
+   ```
 
 2. Start the client:
-   \`\`\`bash
+   ```bash
    pnpm run dev
-   \`\`\`
+   ```
 
 3. Sign in using the seeded account:
    - **Email:** \`test.user@gmail.com\`
@@ -92,13 +92,13 @@ Some inputs accepted by the ingestion endpoint would not be exposed to end users
 
 The ingestion pipeline follows this flow:
 
-\`\`\`
+```
 Vendor Payload
   → Normalize
     → Apply Metric Rules
       → Process (streams & observations)
         → Persist to database
-\`\`\`
+```
 
 ---
 
@@ -107,9 +107,9 @@ Vendor Payload
 ### Observations
 Observations are stored using the following structure:
 
-\`\`\`
+```
 streams/<streamId>/days/<YYYYMMDD>/observations/<observationId>
-\`\`\`
+```
 
 This structure makes it easy to:
 - Query data by date
@@ -121,9 +121,9 @@ Rollups are generated during observation and stream processing. In a real-world 
 
 Rollups are stored as:
 
-\`\`\`
+```
 streams/<streamId>/rollups/<YYYYMMDD>
-\`\`\`
+```
 
 This allows for:
 - Fast retrieval of aggregated data
