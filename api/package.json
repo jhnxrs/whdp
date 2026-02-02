@@ -1,0 +1,40 @@
+{
+  "name": "@whdp/api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx --watch src/index.ts",
+    "build": "tsdown",
+    "start": "NODE_ENV=production node dist/index.mjs",
+    "lint": "biome lint .",
+    "format": "biome format . --write",
+    "check": "biome check .",
+    "check:fix": "biome check . --write",
+    "run:seed": "tsx scripts/SeedDatabase.ts",
+    "run:ingestion": "tsx scripts/RunMockedIngestion.ts",
+    "run:clear": "tsx scripts/ClearDatabase.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.28.0",
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.13",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.1.0",
+    "tsdown": "^0.20.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "firebase-admin": "^13.6.0",
+    "pino": "^10.3.0",
+    "reflect-metadata": "^0.2.2",
+    "typedi": "^0.10.0",
+    "zod": "^4.3.6"
+  }
+}
