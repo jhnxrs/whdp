@@ -1,4 +1,3 @@
-export const README_TEXT = `
 # How to Run the Application
 
 ## API Setup
@@ -135,4 +134,3 @@ This allows for:
 ## Final Notes
 
 This structure was designed with scalability, clarity, and query efficiency in mind. Grouping data by stream and date allows the system to handle large volumes of time-series data while keeping reads predictable and performant.
-`;
